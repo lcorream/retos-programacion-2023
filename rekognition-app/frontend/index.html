@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rekognition Demo</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<h1>Demo Amazon Rekognition</h1>
+		<p>Esta demo usa tu cámara. Por favor, otorga consentimiento para continuar.</p>
+	</header>
+
+	<section id="consent">
+		<label>
+			<input type="checkbox" id="consentCheckbox"> Acepto el uso de la cámara y el procesamiento de mi imagen sólo para esta demo.
+		</label>
+	</section>
+
+	<section id="controls">
+		<div class="left">
+			<video id="video" autoplay playsinline></video>
+			<canvas id="canvas" width="640" height="480" hidden></canvas>
+			<div class="buttons">
+				<button id="startCamera">Abrir cámara</button>
+				<button id="takePhoto" disabled>Tomar foto</button>
+			</div>
+		</div>
+		<div class="right">
+			<label class="upload">
+				<input type="file" id="fileInput" accept="image/*">
+			</label>
+			<img id="preview" alt="Vista previa"/>
+			<div class="buttons">
+				<button id="sendAnalyze" disabled>Analizar</button>
+				<button id="sendMatch" disabled>Buscar coincidencias</button>
+				<button id="sendEnroll" disabled>Inscribir rostro</button>
+				<input type="text" id="externalId" placeholder="externalImageId (opcional)"/>
+			</div>
+		</div>
+	</section>
+
+	<section id="results">
+		<h2>Resultados</h2>
+		<pre id="output"></pre>
+	</section>
+
+	<footer>
+		<small>No se guardan imágenes por defecto. Para borrar: recarga la página.</small>
+	</footer>
+
+	<script src="app.js"></script>
+</body>
+</html>
